@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Contact Us - Study Smart AU
+    link(rel="stylesheet" href="styles.css")
+  body
+    header
+      nav
+        ul
+          li: a(href="/") Home
+          li: a(href="/about") About
+          li: a(href="#services") Services
+          li: a(href="/contact") Contact
+
+    main
+      .contact-container
+        h2 Contact Us
+        p If you have any questions or inquiries, please fill out the form below:
+        
+        form(action="/submit-contact" method="POST")
+          label(for="name") Name
+          input(type="text" id="name" name="name" required)
+
+          label(for="email") Email
+          input(type="email" id="email" name="email" required)
+
+          label(for="message") Message
+          textarea(id="message" name="message" required rows="4" cols="50")
+
+          button(type="submit") Send Message
+        
+        .contact-info
+          h3 Other Ways to Reach Us
+          p You can also reach us at:
+          ul
+            li Email: info@studysmartau.com
+            li Phone: (123) 456-7890
+
+    footer
+      p &copy; 2024 Study Smart AU. All Rights Reserved.

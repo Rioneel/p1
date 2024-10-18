@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Login - Study Smart AU
+    link(rel="stylesheet" href="/public/styles.css")
+    script.
+      function handleLogin(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        // Simple validation
+        if (username === '' || password === '') {
+          errorMessage.textContent = 'Please fill in both fields.';
+          return;
+        }
+
+        // Simulate a login
+        if (username === 'admin' && password === 'admin') {
+          errorMessage.textContent = 'Login successful!';
+          
+        } else {
+          errorMessage.textContent = 'Invalid username or password.';
+        }
+      }
+  body
+    .login-container
+      h2 Login
+      form(onsubmit="handleLogin(event)")
+        label(for="username") Username
+        input(type="text" id="username" name="username" required)
+        
+        label(for="password") Password
+        input(type="password" id="password" name="password" required)
+        
+        button(type="submit") Login
+      
+      div#error-message.error-message(aria-live="alert")
